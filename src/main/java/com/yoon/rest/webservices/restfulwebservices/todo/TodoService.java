@@ -48,7 +48,9 @@ public class TodoService {
 	}
 
 	public void updateTodo(Todo todo) {
+		//id를 기준으로 삭제
 		deleteById(todo.getId());
+		// 새로운 todo 추가
 		todos.add(todo);
 	}
 }
