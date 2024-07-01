@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  //@CrossOrigin(origins = "http://localhost:3000" , allowCredentials = "true")
 public class HelloWorldController {
 
-	
+	//기본인증 URL
 	@GetMapping(path = "/basicauth")
 	public String basicAuthCheck() {
 		return "Success"; 
