@@ -1,7 +1,6 @@
 package com.yoon.rest.webservices.restfulwebservices.basic;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,7 +9,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 //SpringSecurity 설정 클래스
 //@Configuration은 하나이상의 @Bean메서드를 선언한다는 뜻
-@Configuration
+//JWT사용을 위해 기본인증은 주석처리
+//@Configuration
 public class BasicAuthenticationSecurityConfiguration {
 
 	// SpringSecurity는 모든 http요청에 대해서 인증을 요구한다
