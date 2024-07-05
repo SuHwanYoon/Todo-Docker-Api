@@ -118,7 +118,7 @@ public class JwtSecurityConfig {
             return keyPairGenerator.generateKeyPair();
         } catch (Exception e) {
             throw new IllegalStateException(
-                    "Unable to generate an RSA Key Pair", e);
+                    "RSA 키 쌍을 생성할 수 없습니다", e);
         }
     }
  // JWKSource 빈 정의
