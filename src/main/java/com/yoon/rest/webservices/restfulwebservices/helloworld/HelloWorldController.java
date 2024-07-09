@@ -15,6 +15,12 @@ public class HelloWorldController {
 		return "Success"; 
 	}
 
+	// AWS BeanStalk 로드밸런싱시에 상태검사시 사용되는 root URL에 간단한 문자열반환
+	@GetMapping(path = "/") 
+	public String returnSomethingAtRootUrl() {
+		return "Succes HeathCheck!!"; 
+	}
+	
 	@GetMapping(path = "/hello-world")
 	public String helloWorld() {
 		return "Hello World v2"; 
