@@ -39,7 +39,8 @@ public class FullStackRestfulWebServicesApplication {
 //					//모든 HTTP request 유형 허용
 					.allowedMethods("*")
 					// 모든 URL에서의 크로스오리진 Request를 허용(프로덕션 환경에서는 비추천)
-					.allowedOrigins("*");
+					.allowedOrigins("*")
+					.allowedHeaders("*");
 			}
 		};
 	}

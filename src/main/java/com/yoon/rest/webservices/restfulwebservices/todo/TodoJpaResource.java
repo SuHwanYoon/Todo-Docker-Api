@@ -71,7 +71,7 @@ public class TodoJpaResource {
 	public Todo createTodo(@PathVariable String username,@RequestBody Todo todo) {
 		//로그인한 username 쿼리 스트링을 설정
 		todo.setUsername(username);
-		//새로 등록하는 Todo엔티티는(Post) 엔티티 id값이 null 이어야한다
+		//새로 등록하는 Todo엔티티는(Post) Mysql에서 id를 자동 생성하므로 엔티티 id값에 null설정
 		todo.setId(null);
 		//Jpa 전환 - 로그인한 username 과 id= null 값이 세팅된 Todo엔티티 insert
 		Todo createdTodo = todoRepository.save(todo);
