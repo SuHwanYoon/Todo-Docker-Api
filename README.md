@@ -23,9 +23,9 @@ http://full-stack-restapi-mysql-env.eba-thy63jtv.ap-northeast-2.elasticbeanstalk
 API 엔드포인트
 기본적으로 제공되는 API 엔드포인트는 다음과 같습니다:
 
--GET users/{username}/todos: 모든 작업 목록을 가져옵니다.
--GET users/{username}/todos/{id}: 특정 작업을 가져옵니다.
--POST users/{username}/todos: 새로운 작업을 생성합니다.
--POST /authenticate: JWT 토큰을 발급받습니다(로그인시).
--PUT users/{username}/todos/{id}: 특정 작업을 업데이트합니다.
--DELETE users/{username}/todos/{id}: 특정 작업을 삭제합니다.
+- GET users/{username}/todos: 모든 작업 목록을 가져옵니다.
+- GET users/{username}/todos/{id}: 특정 작업을 가져옵니다.
+- POST users/{username}/todos: 새로운 작업을 생성합니다.
+- POST /authenticate: JWT 토큰을 발급받습니다(로그인시).
+- PUT users/{username}/todos/{id}: 특정 작업을 업데이트합니다.
+- DELETE users/{username}/todos/{id}: 특정 작업을 삭제합니다.
