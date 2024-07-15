@@ -7,10 +7,10 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class FullStackRestfulWebServicesApplication {
+public class DockerWebServicesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FullStackRestfulWebServicesApplication.class, args);
+		SpringApplication.run(DockerWebServicesApplication.class, args);
 	}
 
 	//크로스 오리진 리퀘스트를 전역으로(모든 엔드포인트에) 허용하기 위한 메서드
