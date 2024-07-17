@@ -1,0 +1,29 @@
+app = "doker-deploy-restapi"  # 애플리케이션 이름
+kill_signal = "SIGINT"  # 애플리케이션 종료 시그널
+kill_timeout = 5  # 애플리케이션 종료 타임아웃 (초)
+
+[env]
+  # 환경 변수 설정
+  PORT = "8080"
+
+[mounts]
+  source = "data"
+  destination = "/data"
+
+[[services]]
+  internal_port = 8080  # 애플리케이션 내부 포트
+  protocol = "tcp"  # 프로토콜 설정
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = "15s"  # TCP 체크 간격
+    timeout = "2s"
+    grace_period = "1m"
+    restart_limit = 0
