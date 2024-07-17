@@ -41,7 +41,7 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/docker-restapi:v4
+      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/docker-restapi:latest
 
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-restapi:v4
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-restapi:latest
