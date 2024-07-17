@@ -1,0 +1,30 @@
+# fly.toml app configuration file generated for free-api-twilight-lake-7181 on 2024-07-17T23:34:18+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'free-api-twilight-lake-7181'
+primary_region = 'nrt'
+
+[build]
+
+[[mounts]]
+  source = 'tmp'
+  destination = '/tmp'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_start_machines = true
+
+[checks]
+  [checks.alive]
+    type = 'tcp'
+    interval = '15s'
+    timeout = '2s'
+    grace_period = '5s'
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

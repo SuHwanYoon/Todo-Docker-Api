@@ -12,7 +12,7 @@ public class HelloWorldController {
 	//기본인증 URL
 	@GetMapping(path = "/basicauth")
 	public String basicAuthCheck() {
-		return "서버 연결 성공"; 
+		return "fly.io 서버 연결 성공"; 
 	}
 
 	// AWS BeanStalk 로드밸런싱시에 상태검사시 사용되는 root URL에 간단한 문자열반환
