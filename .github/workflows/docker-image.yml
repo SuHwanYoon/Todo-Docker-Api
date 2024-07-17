@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - docker-action  # docker-action 브랜치에 push될 때마다 실행
+      - docker-flyio  # 해당 브랜치에 push될 때마다 실행
 
 jobs:
   build:
@@ -43,10 +43,10 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/docker-restapi:latest #latest태그
+      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/docker-restapi:flyio #태그
 
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-restapi:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/docker-restapi:flyio
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
