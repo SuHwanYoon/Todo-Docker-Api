@@ -1,17 +1,12 @@
-# fly.toml app configuration file generated for docker-deploy-api-thrumming-sky-4166 on 2024-07-19T18:45:14+09:00
+# fly.toml app configuration file generated for docker-deploy-api on 2024-07-21T21:45:57+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'docker-deploy-api-thrumming-sky-4166'
+app = 'docker-deploy-api'
 primary_region = 'nrt'
 
 [build]
-  dockerfile = 'Dockerfile'
-
-[[mounts]]
-  source = 'tmp'
-  destination = '/tmp'
 
 [http_service]
   internal_port = 8080
