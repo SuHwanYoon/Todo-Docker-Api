@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: new-deploy-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: HD0P6UQ4a6MI8wW
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - spring-postgres-net
+
+  spring-app:
+    build: .
+    image: docker-test-image
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"  # 추가된 포트 매핑
+    networks:
+      - spring-postgres-net
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: HD0P6UQ4a6MI8wW
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+networks:
+  spring-postgres-net:
+    driver: bridge
