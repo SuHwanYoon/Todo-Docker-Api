@@ -53,7 +53,7 @@ public class JwtSecurityConfig {
                                         SessionCreationPolicy.STATELESS)) // (2) 세션을 사용하지 않고, 상태 없는(Stateless) 세션 정책을 설정합니다.
                 .authorizeHttpRequests(
                         auth ->
-                                auth.requestMatchers("/",
+                                auth.requestMatchers("/**",
                                                 "/authenticate", "/actuator", "/actuator/*", "/static/**", "/index.html")
                                         .permitAll() // 지정된 URL들에 대한 요청을 모두 허용합니다.
                                         .requestMatchers("/h2-console/**")
