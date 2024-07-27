@@ -49,13 +49,11 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
 		<!-- h2DB 종속성-->
-		<!-- 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		-->
 		<!-- SpringBoot 3.1 이상 버전의 MySql종속성-->
 		<!-- <dependency>
 			<groupId>com.mysql</groupId>
@@ -96,20 +94,23 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- jar파일 생성을 비활성화-->
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>default-jar</id>
-						<phase>none</phase>
-					</execution>
-				</executions>
-			</plugin>
-			-->
 		</plugins>
 	</build>
+	<!-- Profiles -->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<spring.profiles.active>local</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<spring.profiles.active>dev</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>

@@ -14,7 +14,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -39,7 +38,6 @@ import com.nimbusds.jose.proc.SecurityContext;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
 public class JwtSecurityConfig {
 
     //정적파일 접근 허용
@@ -61,7 +59,7 @@ public class JwtSecurityConfig {
                                         .requestMatchers(HttpMethod.OPTIONS, "/**")
                                         .permitAll() // OPTIONS 메서드에 대한 요청을 모두 허용합니다.
                                         .anyRequest()
-                                        .authenticated()) // 그 외의 모든 요청은 인증을 요구합니다.
+                                        ) // 그 외의 모든 요청은 인증을 요구합니다.
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults())) // (4) OAuth2 리소스 서버를 설정하고, JWT를 사용하도록 합니다.
                 .exceptionHandling(
                         (ex) ->
@@ -74,7 +72,22 @@ public class JwtSecurityConfig {
                 .headers(header -> header.frameOptions(frameOptionsConfig -> frameOptionsConfig.sameOrigin())) // 동일 출처에서의 프레임 사용을 허용합니다.
                 .build();
     }
-
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers("/api/**").authenticated()
+//                        .anyRequest().permitAll()
+//                )
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .exceptionHandling(exceptions -> exceptions
+//                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+//                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
+//                )
+//                .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults()));
+//        return http.build();
+//    }
     // AuthenticationManager 빈 정의
     @Bean
     public AuthenticationManager authenticationManager(
