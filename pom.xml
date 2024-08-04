@@ -55,10 +55,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- SpringBoot 3.1 이상 버전의 MySql종속성-->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-		</dependency>-->
+		</dependency>
 		<!-- PostgreSQL JDBC 드라이버 -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -108,6 +108,18 @@
 			<id>dev</id>
 			<properties>
 				<spring.profiles.active>dev</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<spring.profiles.active>prod</spring.profiles.active>
+			</properties>
+		</profile>
+		<profile>
+			<id>deploy</id>
+			<properties>
+				<spring.profiles.active>deploy</spring.profiles.active>
 			</properties>
 		</profile>
 	</profiles>

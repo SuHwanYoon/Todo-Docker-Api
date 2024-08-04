@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/*.jar app.jar
 
 # 로컬에서 빌드된 React 정적 파일을 Docker 이미지로 복사합니다.
-COPY src/main/resources/static /app/src/main/resources/static
+# COPY src/main/resources/static /app/src/main/resources/static
 
 # 컨테이너가 8080 포트를 사용함을 명시합니다.
 EXPOSE 8080

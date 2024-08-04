@@ -17,6 +17,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -40,7 +41,6 @@ import com.nimbusds.jose.proc.SecurityContext;
 @EnableWebSecurity
 public class JwtSecurityConfig {
 
-    //정적파일 접근 허용
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -51,15 +51,15 @@ public class JwtSecurityConfig {
                                         SessionCreationPolicy.STATELESS)) // (2) 세션을 사용하지 않고, 상태 없는(Stateless) 세션 정책을 설정합니다.
                 .authorizeHttpRequests(
                         auth ->
-                                auth.requestMatchers("/**",
-                                                "/authenticate", "/actuator", "/actuator/*", "/static/**", "/index.html")
+                                auth.requestMatchers("/",
+                                                "/authenticate", "/actuator", "/actuator/*")
                                         .permitAll() // 지정된 URL들에 대한 요청을 모두 허용합니다.
                                         .requestMatchers("/h2-console/**")
                                         .permitAll() // H2 콘솔에 대한 요청을 모두 허용합니다.
                                         .requestMatchers(HttpMethod.OPTIONS, "/**")
                                         .permitAll() // OPTIONS 메서드에 대한 요청을 모두 허용합니다.
                                         .anyRequest()
-                                        ) // 그 외의 모든 요청은 인증을 요구합니다.
+                                        .authenticated()) // 그 외의 모든 요청은 인증을 요구합니다.
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults())) // (4) OAuth2 리소스 서버를 설정하고, JWT를 사용하도록 합니다.
                 .exceptionHandling(
                         (ex) ->
@@ -69,7 +69,7 @@ public class JwtSecurityConfig {
                                                 new BearerTokenAccessDeniedHandler())) // 접근이 거부된 경우의 처리기를 설정합니다.
                 .httpBasic(
                         withDefaults()) // (5) HTTP Basic 인증을 설정합니다.
-                .headers(header -> header.frameOptions(frameOptionsConfig -> frameOptionsConfig.sameOrigin())) // 동일 출처에서의 프레임 사용을 허용합니다.
+                .headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)) // 동일 출처에서의 프레임 사용을 허용합니다.
                 .build();
     }
 //    @Bean
