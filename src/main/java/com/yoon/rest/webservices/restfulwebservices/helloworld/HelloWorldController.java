@@ -18,7 +18,7 @@ public class HelloWorldController {
 	// AWS BeanStalk 로드밸런싱시에 상태검사시 사용되는 root URL에 간단한 문자열반환
 	@GetMapping(path = "/")
 	public String returnSomethingAtRootUrl() {
-		return "서버 GithubAction CD/CI 동작 확인!!";
+		return "서버 GithubAction 테스트";
 	}
 	
 	@GetMapping(path = "/hello-world")
@@ -33,6 +33,6 @@ public class HelloWorldController {
 	
 	@GetMapping(path = "/hello-world/path-variable/{name}")
 	public HelloWorldBean helloWorldPathVariable(@PathVariable String name) {
-		return new HelloWorldBean(String.format("Hello World, %s", name)); 
+		return new HelloWorldBean(String.format("Hello World github action, %s", name));
 	}	
 }
