@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'temurin'  # 또는 다른 JDK 배포판 사용 가능: 'zulu', 'adopt', 등
       - name: Build with Maven
         run: ./mvnw clean package -DskipTests
       - uses: superfly/flyctl-actions/setup-flyctl@master
