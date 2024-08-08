@@ -33,6 +33,6 @@ public class HelloWorldController {
 	
 	@GetMapping(path = "/hello-world/path-variable/{name}")
 	public HelloWorldBean helloWorldPathVariable(@PathVariable String name) {
-		return new HelloWorldBean(String.format("Hello World github action, %s", name));
+		return new HelloWorldBean(String.format("Hello World 빌드 최적화, %s", name));
 	}	
 }
