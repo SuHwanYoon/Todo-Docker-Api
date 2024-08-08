@@ -4,11 +4,14 @@ FROM openjdk:17-jdk-alpine
 # 작업 디렉토리를 설정합니다.
 WORKDIR /app
 
+# Maven 설치
+RUN apk add --no-cache maven
+
 # 소스 파일 전체를 복사합니다.
 COPY . /app
 
 # 빌드를 진행합니다. 테스트는 생략합니다.
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # 빌드된 JAR 파일을 Docker 이미지로 복사합니다.
 COPY target/*.jar app.jar
