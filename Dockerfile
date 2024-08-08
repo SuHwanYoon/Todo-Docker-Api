@@ -13,5 +13,5 @@ COPY target/*.jar app.jar
 # 컨테이너가 8080 포트를 사용함을 명시합니다.
 EXPOSE 8080
 
-# 애플리케이션을 실행합니다.
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# 애플리케이션 실행
+ENTRYPOINT ["java", "-Dspring.profiles.active=deploy", "-jar", "app.jar"]
