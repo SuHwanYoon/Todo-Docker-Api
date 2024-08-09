@@ -21,6 +21,7 @@
 - **Spring Boot**: 스프링 프레임워크 기반의 애플리케이션 프레임워크
 - **Maven**: 프로젝트 빌드 및 의존성 관리를 위한 도구
 - **PostgreSQL**: 관계형 데이터베이스 관리 시스템
+- **Hibernate**: Spring-Data-Jpa의 구현체
 - **Docker**: 애프리케이션 컨테이너화 및 배포, 일관성 유지를 위해 사용
 - **Github Action**: 코드 푸시를 통해 Docker 이미지 빌드 배포 자동화
 
