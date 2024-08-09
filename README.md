@@ -17,8 +17,8 @@
 - **Maven**: 프로젝트 빌드 및 의존성 관리를 위한 도구
 - **PostgreQL**: 관계형 데이터베이스 관리 시스템
 
-## baseURL
-https://docker-restapi-v2.onrender.com
+## ServerURL
+https://cdci-deploy-api.fly.dev/
 
 API 엔드포인트
 기본적으로 제공되는 API 엔드포인트는 다음과 같습니다:
