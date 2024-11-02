@@ -26,7 +26,7 @@
 - CRUD 기능 (생성, 읽기, 업데이트, 삭제)
 
 
-  このプロジェクトは、次のような主な機能を提供します:
+このプロジェクトは、次のような主な機能を提供します:
 - RESTful APIを提供します
 - データベース連動（PostgreQL）
 - ユーザー認証と権限管理です
@@ -46,7 +46,7 @@
 
 ## API EndPoint
 
-제공되는 API 엔드포인트의 작동 내용 다음과 같습니다
+제공되는 API 엔드포인트의 작동 내용은 다음과 같습니다
 
 - GET users/{username}/todos: 모든 작업 목록을 가져옵니다.
 - GET users/{username}/todos/{id}: 특정 작업을 가져옵니다.
@@ -56,6 +56,7 @@
 - DELETE users/{username}/todos/{id}: 특정 작업을 삭제합니다.
 
 
+API EndPointの作業内容です
 - GET users/{username}/todos:すべてのジョブリストを取得します。
 - GET users/{username}/todos/{id}:特定のタスクを取得します。
 - POST users/{username}/todos:新しいタスクを生成します。
